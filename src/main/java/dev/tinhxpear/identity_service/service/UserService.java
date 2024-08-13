@@ -3,6 +3,8 @@ package dev.tinhxpear.identity_service.service;
 import dev.tinhxpear.identity_service.dto.request.UserCreationRequest;
 import dev.tinhxpear.identity_service.dto.request.UserUpdateRequest;
 import dev.tinhxpear.identity_service.entity.User;
+import dev.tinhxpear.identity_service.exception.AppException;
+import dev.tinhxpear.identity_service.exception.ErrorCode;
 import dev.tinhxpear.identity_service.repository.UserRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -18,7 +20,7 @@ public class UserService {
     public User createUser(UserCreationRequest request) {
 
         if(userRepository.existsByUsername(request.getUsername())) {
-            throw new RuntimeException("User existed!");
+            throw new AppException(ErrorCode.USER_EXISTED);
         }
         User user = new User();
 
