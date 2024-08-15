@@ -1,9 +1,7 @@
 package dev.tinhxpear.identity_service.dto.request;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
+import lombok.experimental.FieldDefaults;
 
 import java.time.LocalDate;
 
@@ -11,10 +9,12 @@ import java.time.LocalDate;
 @AllArgsConstructor
 @Getter
 @Setter
+@Builder
+@FieldDefaults(level = AccessLevel.PRIVATE)
 public class UserUpdateRequest {
 
-    private String password;
-    private String firstName;
-    private String lastName;
-    private LocalDate dob;
+     String password;
+     String firstName;
+     String lastName;
+     LocalDate dob;
 }

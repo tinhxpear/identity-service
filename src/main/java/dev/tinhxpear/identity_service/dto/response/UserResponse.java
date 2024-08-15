@@ -3,14 +3,19 @@ package dev.tinhxpear.identity_service.dto.response;
 import lombok.*;
 import lombok.experimental.FieldDefaults;
 
+import java.time.LocalDate;
+
 @NoArgsConstructor
 @AllArgsConstructor
 @Getter
 @Setter
 @Builder
 @FieldDefaults(level = AccessLevel.PRIVATE)
-public class ApiResponse <T>{
-     int code = 1000;
-     String message;
-     T result;
+public class UserResponse {
+    String id;
+    String username;
+    String password;
+    String firstName;
+    String lastName;
+    LocalDate dob;
 }
